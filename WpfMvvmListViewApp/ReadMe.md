@@ -46,19 +46,19 @@ public class TextBoxNamesConverter : IMultiValueConverter
 - **Dependency Injection**
 ```CSharp
 public partial class App : Application
+{
+    public App() => Services = ConfigureServices();
+    public new static App Current => (App)Application.Current;
+
+    public IServiceProvider? Services { get; }
+    private static IServiceProvider? ConfigureServices()
     {
-        public App() => Services = ConfigureServices();
-        public new static App Current => (App)Application.Current;
+        var services = new ServiceCollection();
 
-        public IServiceProvider? Services { get; }
-        private static IServiceProvider? ConfigureServices()
-        {
-            var services = new ServiceCollection();
+        services.AddSingleton<ICustomerRepository, CustomerRepository>();
+        services.AddSingleton<MainViewModel>();
 
-            services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<MainViewModel>();
-
-            return services.BuildServiceProvider();
-        }
+        return services.BuildServiceProvider();
     }
+}
 ```

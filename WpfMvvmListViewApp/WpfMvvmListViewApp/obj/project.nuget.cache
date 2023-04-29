@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "lpa4AHb/OdBL5W89Omrq+YDkqj0pIBNiXwB7/fiRtcTkjBm8dDeq4eZhLGrKsZriy/GxXmkBEP6xelGgxFNg5A==",
+  "success": true,
+  "projectFilePath": "G:\\Dev\\Git\\DotNet-Project\\WpfMvvmListViewApp\\WpfMvvmListViewApp\\WpfMvvmListViewApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sapphire\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0\\communitytoolkit.mvvm.8.2.0.nupkg.sha512",
+    "C:\\Users\\Sapphire\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Sapphire\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
