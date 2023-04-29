@@ -1,0 +1,43 @@
+CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+Console.CancelKeyPress += (source, args) =>
+{
+    Console.Error.WriteLine("Cancelling download...");
+
+    args.Cancel = true;
+    cts.Cancel();
+};
+
+Console.WriteLine("Downloading to {0}...", path);
+
+try
+{
+    using (Stream fs = File.Create(path))
+    await blobClient.DownloadToAsync(fs, cts.Token);
+}
+catch (OperationCanceledException)
+{
+    Console.Error.WriteLine("Download canceled. Deleting {0}...", path);
+    File.Delete(path);
+}
+
+
+public async Task DownloadAsync(Uri uri, CancellationToken cancellationToken = default)
+{
+    using (CancellationTokenSource cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken))
+    {
+        cts.CancelAfter(TimeSpan.FromSeconds(30));
+
+        // Download file ...
+    }
+}
+
+public async Task DoWorkAsync(CancellationToken cancellationToken = default)
+{
+    using (CancellationTokenRegistration  cts = cancellationToken.Register(() =>
+    {
+        Console.Error.WriteLine("The task was cancelled.");
+    }))
+    {
+        // Start long-running task...
+    }
+}
